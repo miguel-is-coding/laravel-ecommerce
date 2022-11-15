@@ -8,7 +8,6 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 class Category extends Model
 {
-    use HasRecursiveRelationships, HasFactory;
-
-
+    use HasRecursiveRelationships;
+    use HasFactory;
 }
