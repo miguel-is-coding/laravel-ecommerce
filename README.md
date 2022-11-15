@@ -1,4 +1,4 @@
-# WIP - Laravel Ecommerce
+# Laravel Ecommerce
 
 ## About
 
@@ -8,5 +8,8 @@
 TODO: Will add them as I do them ;)
 - Livewire
 - Breeze
+
+### Infrastructural Features
+- GitHooks for Code Style ([PHPCS](https://github.com/squizlabs/PHP_CodeSniffer) and [Laravel Pint](https://laravel.com/docs/9.x/pint))
 
 > Written with [StackEdit](https://stackedit.io/).
