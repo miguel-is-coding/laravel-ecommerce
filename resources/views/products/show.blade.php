@@ -10,7 +10,7 @@
                         <div>
                             <h1>{{ $product->title }}</h1>
                             <h1 class="font-semibold text-xl mt-2">
-                                Formatted price
+                                {{ $product->price->valueFormatted() }}
                             </h1>
                             <p class="mt-2 text-gray-500">
                                 {{ $product->description }}
