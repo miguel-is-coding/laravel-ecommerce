@@ -26,5 +26,5 @@ ignore="resources/lang,resources/views,bootstrap/helpers,database/migrations,bin
 
 phpcs="phpcs --report=code --colors --report-width=80 --standard=PSR12 --ignore=${ignore}"
 
-__run "1/2" "code sniffer" "${modified} | xargs -r ${phpcs}"
-__run "2/2" "phpstan" "${modified} | xargs -r vendor/bin/pint"
+__run "1/2" "phpstan" "${modified} | xargs -r vendor/bin/pint"
+__run "2/2" "code sniffer" "${modified} | xargs -r ${phpcs}"
