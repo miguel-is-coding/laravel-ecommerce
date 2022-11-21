@@ -16,7 +16,9 @@
                                 {{ $product->description }}
                             </p>
                         </div>
-                        Product variation selector
+                        <div class="mt-6">
+                            <livewire:product-selector :product="$product"/>
+                        </div>
                     </div>
                 </div>
             </div>

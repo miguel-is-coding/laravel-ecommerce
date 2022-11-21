@@ -9,6 +9,7 @@ class ProductShowController extends Controller
 {
     public function __invoke(Product $product): View
     {
+        $product->load('variations.children');
         return view('products.show', [
             'product' => $product
         ]);
