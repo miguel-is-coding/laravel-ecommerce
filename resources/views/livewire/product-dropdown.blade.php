@@ -3,7 +3,6 @@
         {{ Str::title($variations->first()?->type) }}
     </div>
 
-    {{ $selectedVariationID }}
     <x-select class="w-full" wire:model="selectedVariationID">
         <option value="">Choose an option</option>
 
@@ -13,4 +12,11 @@
             </option>
         @endforeach
     </x-select>
+
+    @if ($this->selectedVariationModel?->children->count())
+        <livewire:product-dropdown
+            :variations="$this->selectedVariationModel->children->sortBy('order')"
+            :key="$selectedVariationID"
+        />
+    @endif
 </div>
