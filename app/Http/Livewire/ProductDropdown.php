@@ -28,6 +28,10 @@ class ProductDropdown extends Component
 
     public function updatedSelectedVariationID()
     {
-         return $this->getSelectedVariationModelProperty();
+        $this->emitTo('product-selector', 'skuVariantSelected', null);
+
+        if($this->selectedVariationModel?->sku) {
+            $this->emitTo('product-selector', 'skuVariantSelected', $this->selectedVariationID);
+        }
     }
 }
