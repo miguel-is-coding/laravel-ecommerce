@@ -14,7 +14,8 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 class Variation extends Model implements HasMedia
 {
-    use HasRecursiveRelationships, InteractsWithMedia;
+    use HasRecursiveRelationships;
+    use InteractsWithMedia;
 
     protected $casts = [
         'price' => PriceCast::class,
