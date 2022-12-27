@@ -16,8 +16,7 @@ class Cart implements CartInterface
     {
         $instance = \App\Models\Cart::make();
 
-        if ($user)
-        {
+        if ($user) {
             $instance->user()->associate($user);
         }
 
@@ -28,5 +27,20 @@ class Cart implements CartInterface
     public function exists()
     {
         return $this->sessionManager->has(config('cart.session.key'));
+    }
+
+    public function contents()
+    {
+        return $this->instance()->variations;
+    }
+
+    public function contentsCount(): int
+    {
+        return $this->contents()->count();
+    }
+
+    protected function instance()
+    {
+        return \App\Models\Cart::whereUuid($this->sessionManager->get(config('cart.session.key')))->first();
     }
 }
