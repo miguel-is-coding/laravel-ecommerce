@@ -3,18 +3,21 @@
 namespace App\Cart;
 
 use App\Cart\Contracts\CartInterface;
+use App\Models\Cart as CartModel;
 use App\Models\User;
 use Illuminate\Session\SessionManager;
 
 class Cart implements CartInterface
 {
+    protected CartModel $instance;
+
     public function __construct(protected SessionManager $sessionManager)
     {
     }
 
-    public function create(?User $user = null)
+    public function create(?User $user = null): void
     {
-        $instance = \App\Models\Cart::make();
+        $instance = CartModel::make();
 
         if ($user) {
             $instance->user()->associate($user);
@@ -39,8 +42,8 @@ class Cart implements CartInterface
         return $this->contents()->count();
     }
 
-    protected function instance()
+    protected function instance(): CartModel
     {
-        return \App\Models\Cart::whereUuid($this->sessionManager->get(config('cart.session.key')))->first();
+        return $this->instance ?? ($this->instance = CartModel::whereUuid($this->sessionManager->get(config('cart.session.key')))->first());
     }
 }
